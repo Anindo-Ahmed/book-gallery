@@ -1,6 +1,6 @@
 [
     {
-      "bookId": "1",
+      "bookId": 1,
       "bookName": "Harry Potter and the Sorcerer's Stone",
       "author": "J.K. Rowling",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1598823299i/42844155.jpg",
@@ -13,7 +13,7 @@
       "yearOfPublishing": 1997
     },
     {
-      "bookId": "2",
+      "bookId": 2,
       "bookName": "To Kill a Mockingbird",
       "author": "Harper Lee",
       "image": "https://media.glamour.com/photos/56e1f3c562b398fa64cbd310/master/w_1600%2Cc_limit/entertainment-2016-02-07-main.jpg",
@@ -26,7 +26,7 @@
       "yearOfPublishing": 1960
     },
     {
-      "bookId": "3",
+      "bookId": 3,
       "bookName": "The Outsiders",
       "author": "S.E. Hinton",
       "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442129426l/231804.jpg",
@@ -39,7 +39,7 @@
       "yearOfPublishing": 1967
     },
     {
-      "bookId": "4",
+      "bookId": 4,
       "bookName": "1984",
       "author": "George Orwell",
       "image": "https://i.pinimg.com/736x/c5/94/49/c59449aaffccfdcba684cee512339cd0.jpg",
@@ -52,7 +52,7 @@
       "yearOfPublishing": 1949
     },
     {
-      "bookId": "5",
+      "bookId": 5,
       "bookName": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
       "image": "https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg?resize=267%2C400&ssl=1",
@@ -65,7 +65,7 @@
       "yearOfPublishing": 1925
     },
     {
-      "bookId": "6",
+      "bookId": 6,
       "bookName": "Animal Farm",
       "author": "George Orwell",
       "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/5b4ff898218075.5ed756361c9e1.png",
@@ -78,7 +78,7 @@
       "yearOfPublishing": 1945
     },
     {
-      "bookId": "7",
+      "bookId": 7,
       "bookName": "The Catcher in the Rye",
       "author": "J.D. Salinger",
       "image": "https://cdn.britannica.com/94/181394-050-2F76F7EE/Reproduction-cover-edition-The-Catcher-in-the.jpg",
@@ -91,7 +91,7 @@
       "yearOfPublishing": 1951
     },
     {
-      "bookId": "8",
+      "bookId": 8,
       "bookName": "The Fault in Our Stars",
       "author": "John Green",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg",
@@ -104,7 +104,7 @@
       "yearOfPublishing": 2012
     },
     {
-      "bookId": "9",
+      "bookId": 9,
       "bookName": "The Hunger Games",
       "author": "Suzanne Collins",
       "image": "https://static.wikia.nocookie.net/35906ec1-bfcd-48bc-9ca3-68cd76fbe9e0",
