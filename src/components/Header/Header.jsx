@@ -48,8 +48,8 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-4">
-        <a className="bg-[#23BE0A] rounded-lg py-4 px-7">Sign in</a>
-        <a className="bg-[#59C6D2] rounded-lg py-4 px-7">Sign up</a>
+        <a className="bg-[#23BE0A] rounded-lg py-4 px-7 text-white">Sign in</a>
+        <a className="bg-[#59C6D2] rounded-lg py-4 px-7 text-white">Sign up</a>
       </div>
     </div>
   );

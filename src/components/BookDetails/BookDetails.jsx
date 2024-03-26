@@ -1,4 +1,7 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveBookList } from '../../Utility/localstorage';
 
 const BookDetails = () => {
 
@@ -6,12 +9,21 @@ const BookDetails = () => {
     const {bookId} = useParams();
     const book = books.find(book => book.bookId === parseInt(bookId))
 
+    const handleRead = (e) => {
+        saveBookList(parseInt(bookId));
+        console.log('Read clicked',e);
+        toast('Successfully added to Read list')
+    }
+    const handleWishList = (e) => {
+        saveBookList(parseInt(bookId));
+        console.log('wishlist clicked',e)
+        toast('Successfully added to Wishlist')
+    }
     return (
         <div className="flex flex-col md:flex-row justify-between gap-12 mt-14">
             
-            <div className="bg-base-200 rounded-2xl p-20">
-            <h2>Book details: {bookId}</h2>
-                <img src={book.image} alt="" className="w-[480px] mx-auto"/>
+            <div className="bg-base-200 rounded-2xl p-20 w-1/2 h-[700px] shadow-md">
+                <img src={book.image} alt="" className="h-[100%] mx-auto"/>
             </div>
             <div className="flex-1">
                 <h1 className="text-4xl font-bold mb-4">{book.bookName}</h1>
@@ -28,10 +40,12 @@ const BookDetails = () => {
                 <p className="my-3"><span>Rating: </span>{book.rating}</p>
 
                 <div className="flex gap-4 mt-8">
-                    <button className="btn btn-outline rounded-lg py-4 px-7 text-black">Read</button>
-                    <button className="btn btn-outline bg-[#50B1C9] rounded-lg py-4 px-7  text-white">WishList</button>
+                    <button onClick={()=>handleRead(book)} className="btn btn-outline rounded-lg py-4 px-7 text-black">Read</button>
+                    <button onClick={()=>handleWishList(book)} className="btn btn-outline bg-[#50B1C9] rounded-lg py-4 px-7  text-white">WishList</button>
                 </div>
             </div>
+
+            <ToastContainer />
         </div>
     );
 };
