@@ -1,23 +1,44 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData, useParams } from "react-router-dom";
-import { saveBookList } from '../../Utility/localstorage';
+import { getStoredBooks, saveBookList, saveWishList } from '../../Utility/localstorage';
+import { useState } from 'react';
 
 const BookDetails = () => {
-
+    
     const books = useLoaderData();
     const {bookId} = useParams();
     const book = books.find(book => book.bookId === parseInt(bookId))
+    const [bookLists, setBookLists] = useState([]);
+    const [wishLists, setWishList] = useState([]);
 
     const handleRead = (e) => {
         saveBookList(parseInt(bookId));
-        console.log('Read clicked',e);
-        toast('Successfully added to Read list')
+        // console.log('Read clicked',e);
+        const isExist = bookLists.find(book => book.bookId === e.bookId)
+        
+        if(!isExist){
+            setBookLists([...bookLists, e]);
+            toast('Successfully added to Read list')
+        }
+        else{
+            toast("It's Already been added to readlist")
+        }
     }
     const handleWishList = (e) => {
-        saveBookList(parseInt(bookId));
-        console.log('wishlist clicked',e)
-        toast('Successfully added to Wishlist')
+        const bookList = getStoredBooks()
+        saveWishList(parseInt(bookId));
+        console.log('wishlist clicked',e);
+        console.log(bookList)
+        const isExist = wishLists.find(book => book.bookId === bookList.bookId)
+        
+        if(!isExist){
+            setWishList([...wishLists, e]);
+            toast('Successfully added to  Wishlist')
+        }
+        else{
+            toast("It's Already been added to wishlist")
+        }
     }
     return (
         <div className="flex flex-col md:flex-row justify-between gap-12 mt-14">
@@ -40,7 +61,7 @@ const BookDetails = () => {
                 <p className="my-3"><span>Rating: </span>{book.rating}</p>
 
                 <div className="flex gap-4 mt-8">
-                    <button onClick={()=>handleRead(book)} className="btn btn-outline rounded-lg py-4 px-7 text-black">Read</button>
+                    <button onClick={()=>handleRead(book)} className="btn btn-outline rounded-lg py-4 px-7 text-black hover:bg-[#23BE0A]">Read</button>
                     <button onClick={()=>handleWishList(book)} className="btn btn-outline bg-[#50B1C9] rounded-lg py-4 px-7  text-white">WishList</button>
                 </div>
             </div>

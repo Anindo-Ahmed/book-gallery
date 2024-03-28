@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getStoredBooks } from "../../Utility/localstorage";
+import { getStoredBooks, getStoredWishList } from "../../Utility/localstorage";
+import Readbooks from "../Readbooks/Readbooks";
+import Wishlist from "../Wishlist/Wishlist";
 
 const ListedBooks = () => {
     const books = useLoaderData();
     const [bookList, setBookList] = useState([]);
+    const [wishLists, setWishList] = useState([]);
 
     useEffect(()=>{
         const storedBooks = getStoredBooks();
@@ -12,13 +15,21 @@ const ListedBooks = () => {
             const readBook = books.filter(book => storedBooks.includes(book.bookId));
             setBookList(readBook)
         }
+    },[]);
+
+    useEffect(()=>{
+        const storedWishListBooks = getStoredWishList();
+        if(books.length){
+            const wishBook = books.filter(book => storedWishListBooks.includes(book.bookId));
+            setWishList(wishBook)
+        }
     },[])
 
 
     return (
         <div className="mt-9 text-center">
             <div className="bg-base-200 p-9">
-                <h2 className="text-center text-3xl font-bold rounded-2xl">Books: {bookList.length}</h2>
+                <h2 className="text-center text-3xl font-bold rounded-2xl">Books</h2>
             </div>
             <details className="dropdown mt-8 mb-14">
                 <summary className="m-1 bg-[#23BE0A] rounded-lg py-4 px-12 text-white">Sort By</summary>
@@ -28,11 +39,22 @@ const ListedBooks = () => {
                     <li><a>Publisher year</a></li>
                 </ul>
             </details>
-            {/* <div>
-                {
-                   bookList.map(books => ) 
-                }
-            </div> */}
+            <div role="tablist" className="tabs tabs-lifted">
+                <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read Books" />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box py-6 gap-6">
+                    {
+                        bookList.map(readBook => <Readbooks key={readBook.bookId} readBook={readBook}></Readbooks>)
+                    }
+                </div>
+
+                <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="WishList Books" checked />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                    {
+                       wishLists.map(wishList => <Wishlist key={wishList.bookId} wishList={wishList}></Wishlist>) 
+                    }
+                </div>
+
+            </div>
         </div>
     );
 };
