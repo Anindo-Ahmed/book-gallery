@@ -8,12 +8,28 @@ const ListedBooks = () => {
     const books = useLoaderData();
     const [bookList, setBookList] = useState([]);
     const [wishLists, setWishList] = useState([]);
+    const [displayLists, setDisplayLists] = useState([]);
+
+    const handleSortBooks = sort =>{
+        if(sort === 'rating'){
+            setDisplayLists(bookList);
+        }
+        else if(sort === 'numberOfPages'){
+            const totalPages = bookList.filter(pages => pages.totalPages === {totalPages});
+            setDisplayLists(totalPages);
+        }
+        else if(sort === 'publishYear'){
+            const years = bookList.filter(year => pages.yearOfPublishing === {yearOfPublishing});
+            setDisplayLists(totalPages);
+        } 
+    }
 
     useEffect(()=>{
         const storedBooks = getStoredBooks();
         if(books.length){
             const readBook = books.filter(book => storedBooks.includes(book.bookId));
-            setBookList(readBook)
+            setBookList(readBook);
+            setDisplayLists(readBook);
         }
     },[]);
 
@@ -34,16 +50,16 @@ const ListedBooks = () => {
             <details className="dropdown mt-8 mb-14">
                 <summary className="m-1 bg-[#23BE0A] rounded-lg py-4 px-12 text-white">Sort By</summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-auto ">
-                    <li><a>Rating</a></li>
-                    <li><a>Number of pages</a></li>
-                    <li><a>Publisher year</a></li>
+                    <li onClick={()=> handleSortBooks('rating')}><a>Rating</a></li>
+                    <li onClick={()=> handleSortBooks('numberOfPages')}><a>Number of pages</a></li>
+                    <li onClick={()=> handleSortBooks('publishYear')}><a>Publisher year</a></li>
                 </ul>
             </details>
             <div role="tablist" className="tabs tabs-lifted">
                 <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read Books" />
                 <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box py-6 gap-6">
                     {
-                        bookList.map(readBook => <Readbooks key={readBook.bookId} readBook={readBook}></Readbooks>)
+                        displayLists.map(readBook => <Readbooks key={readBook.bookId} readBook={readBook}></Readbooks>)
                     }
                 </div>
 
