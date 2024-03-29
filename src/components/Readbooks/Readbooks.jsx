@@ -1,5 +1,8 @@
 import { list } from "postcss";
 import { Link } from "react-router-dom";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { MdOutlineFindInPage } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
 
 const Readbooks = ({readBook}) => {
       
@@ -20,11 +23,11 @@ const Readbooks = ({readBook}) => {
                             tags.map(tag => <li className="bg-[#23BE0A12] px-4 text-[#23BE0A] rounded-full">#{tag}</li>)
                         }
                         </ul>
-                        <p><span>Year of Publishing: </span>{yearOfPublishing}</p>
+                        <p className="flex items-center gap-2"><span className="flex items-center gap-2"><IoLocationOutline /> Year of Publishing: </span>{yearOfPublishing}</p>
                     </div>
                     <div className="flex flex-row items-center gap-6">
-                        <p><span>Publisher: </span>{publisher}</p>
-                        <p><span>Page: </span>{totalPages}</p>
+                        <p className="flex items-center gap-2"><span className="flex items-center gap-2"> <AiOutlineUsergroupAdd />Publisher: </span>{publisher}</p>
+                        <p className="flex items-center gap-2"><span className="flex items-center gap-2"> <MdOutlineFindInPage />Page: </span>{totalPages}</p>
                     </div>
                     <hr className="my-4 border"/>
                     <div className="flex flex-row items-center gap-3">

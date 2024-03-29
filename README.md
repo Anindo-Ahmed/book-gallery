@@ -1,8 +1,11 @@
-# React + Vite
+# Book Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This goal of this website is to inspire reading books in several categories. 
 
-Currently, two official plugins are available:
+Currently, we are offering below benefits through our website:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Trying to get reach a large number of community through your favourite books and thoughts.
+- We want to enlarge our vission by your valuable feedback.
+- We want to create such a global platform for every single person, where they can find themselves in their love, feelings, research and so many categories.
+- We want to reach you through our services.
+- We want to grow together with vast knowledge.
