@@ -2,7 +2,7 @@
 
 This goal of this website is to inspire reading books in several categories. 
 
-Currently, we are offering below benefits through our website:
+Currently, we are offering below benefits through our website: https://allbookgallery.netlify.app/
 
 - Trying to get reach a large number of community through your favourite books and thoughts.
 - We want to enlarge our vission by your valuable feedback.
