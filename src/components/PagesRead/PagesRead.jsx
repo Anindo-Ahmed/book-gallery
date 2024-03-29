@@ -7,16 +7,22 @@ const PagesRead = () => {
     const books = useLoaderData();
     const [bookChart, setBookChart] = useState([]);
     
-    useEffect(()=>{
-        const storedBooks = getStoredBooks();
-        console.log(storedBooks);
-        if(books.length){
-            const readBook = books.filter(book => storedBooks.includes(book.bookId));
-            setBookChart(readBook); 
-        }
+    // useEffect(()=>{
+    //     const storedBooks = getStoredBooks();
+    //     if(books.length){
+    //         const readBook = books.filter(book => storedBooks.includes(book.bookId));
+    //         setBookChart(readBook); 
+    //     }   
+    // },[])
+    // console.log(bookChart, books)
+    const storedBooks = getStoredBooks();
+    if(books.length){
+        const readBook = books.filter(book => storedBooks === book.bookId);
+        setBookChart(readBook);
+    }
+    
+    // const readBook = books.filter(book => storedBooks.includes(book.bookId));
         
-    },[])
-    // const storedBooks = getStoredBooks();
 
     return (
         <div>

@@ -48,14 +48,14 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Book Gallery</a>
+        <a className="btn btn-ghost text-lg md:text-xl">Book Gallery</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-4">
         <a className="bg-[#23BE0A] rounded-lg py-4 px-7 text-white">Sign in</a>
-        <a className="bg-[#59C6D2] rounded-lg py-4 px-7 text-white">Sign up</a>
+        <a className="bg-[#59C6D2] rounded-lg py-4 px-7 text-white hidden md:block">Sign up</a>
       </div>
     </div>
   );
